@@ -1,0 +1,23 @@
+﻿@page "/alertComponent"
+@rendermode InteractiveAuto
+
+<h3>AlertComponent</h3>
+
+<Toasts class="p-3" Messages="message" AutoHide="true" Delay="6000" Placement="ToastsPlacement.TopCenter" />
+
+<Button Class="btn btn-primary" @onclick="ShowToast">Toast with Content</Button>
+
+@code {
+
+    private List<ToastMessage> message = [];
+    
+    private void ShowToast(){
+        var toast = new ToastMessage
+        {
+            Title = "Success",
+            Message = "This is a success alert—check it out!",
+            Type = ToastType.Success,             
+        };
+        message.Add(toast);
+    }
+}
